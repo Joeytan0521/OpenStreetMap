@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OpenStreetMap</string>
+    <string name="til_startingpoint">Starting Point</string>
+    <string name="til_destination">Destination</string>
+    <string name="tv_distance">Distance: - </string>
+    <string name="tv_duration">Duration: - </string>
+    <string name="tv_ETA">ETA: - </string>
+
+</resources>
