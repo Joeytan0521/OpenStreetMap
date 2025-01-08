@@ -133,20 +133,20 @@
         app:layout_constraintDimensionRatio=".9:1"
         app:layout_constraintHeight_percent=".08"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/actv_main_fav_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/white"
-        android:elevation="6dp"
-        app:icon="@drawable/ic_favourite"
-        app:iconTint="#1A73E8"
-        app:iconSize="24dp"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@id/actv_main_search_btn"
-        app:layout_constraintBottom_toTopOf="@id/actv_main_search_btn"
-        app:layout_constraintDimensionRatio=".9:1"
-        app:layout_constraintHeight_percent=".08"/>
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/actv_main_fav_btn"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:elevation="6dp"-->
+<!--        app:icon="@drawable/ic_favourite"-->
+<!--        app:iconTint="#1A73E8"-->
+<!--        app:iconSize="24dp"-->
+<!--        app:cornerRadius="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/actv_main_search_btn"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/actv_main_search_btn"-->
+<!--        app:layout_constraintDimensionRatio=".9:1"-->
+<!--        app:layout_constraintHeight_percent=".08"/>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/actv_main_gps_btn"
