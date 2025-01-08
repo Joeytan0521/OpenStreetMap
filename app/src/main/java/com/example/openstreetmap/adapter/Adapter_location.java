@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.openstreetmap.R;
 import com.example.openstreetmap.databinding.RecyclerItemSearchResultBinding;
 import com.example.openstreetmap.model.Location;
+import com.example.openstreetmap.network.OnLocationSelectedListener;
 
 import java.util.List;
 
@@ -17,10 +18,16 @@ public class Adapter_location extends RecyclerView.Adapter<Adapter_location.View
 
     private final List<Location.LocationFeature> locationList;
     private final OnItemClickListener listener;
+    private OnLocationSelectedListener listener2;
+
 
     public Adapter_location(List<Location.LocationFeature> locationList, OnItemClickListener listener) {
         this.locationList = locationList;
         this.listener = listener;
+    }
+
+    public void setOnLocationSelectedListener(OnLocationSelectedListener listener2) {
+        this.listener2 = listener2;
     }
 
     @NonNull
@@ -51,6 +58,7 @@ public class Adapter_location extends RecyclerView.Adapter<Adapter_location.View
         }
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(location));
+
     }
 
     @Override
@@ -69,5 +77,11 @@ public class Adapter_location extends RecyclerView.Adapter<Adapter_location.View
 
     public interface OnItemClickListener {
         void onItemClick(Location.LocationFeature feature);
+    }
+
+    public void updateData(List<Location.LocationFeature> newFeatures) {
+        locationList.clear();
+        locationList.addAll(newFeatures);
+        notifyDataSetChanged();
     }
 }

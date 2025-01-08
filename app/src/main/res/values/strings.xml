@@ -5,5 +5,13 @@
     <string name="tv_distance">Distance: - </string>
     <string name="tv_duration">Duration: - </string>
     <string name="tv_ETA">ETA: - </string>
-
+    <string name="tv_fav_list_home">Set Home Address</string>
+    <string name="tv_fav_list_home2">Get the fastest route</string>
+    <string name="tv_fav_list_work">Set Work Address</string>
+    <string name="tv_fav_list_work2">Commute easily every day</string>
+    <string name="tv_fav_list_common">Set Favourite Address</string>
+    <string name="tv_fav_list_common2">Commute easily every day</string>
+    <string name="tv_fav_list_common3">Enter Your Favourite Address</string>
+    <string name="btn_fav_cancel">Cancel</string>
+    <string name="btn_fav_add">Add</string>
 </resources>

@@ -16,6 +16,7 @@ public class LocationPreferences {
     private static final String PREF_NAME = "location_preferences";
     private static final String KEY_START_LOCATIONS = "recent_start_locations";
     private static final String KEY_DESTINATION_LOCATIONS = "recent_destination_locations";
+    private static final String KEY_FAV_LOCATIONS = "favorite_locations";
 
     private static void saveLocation(Context context, String key, Location.LocationFeature locationFeature, boolean isPreviouslySelected) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);

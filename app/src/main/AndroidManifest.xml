@@ -27,6 +27,8 @@
         </intent-filter>
     </activity>
 
+    <activity android:name=".ui.Actv_Fav_List" />
+
     </application>
 
 </manifest>

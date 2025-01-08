@@ -2,6 +2,7 @@ package com.example.openstreetmap.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -146,6 +147,11 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
             } else {
                 Toast.makeText(this, "Please select both starting point and destination.", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        binding.actvMainFavBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Actv_Main.this, Actv_Fav_List.class);
+            startActivity(intent);
         });
 
         binding.actvMainGpsBtn.setOnClickListener(v -> {
@@ -448,9 +454,8 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
 
     private void handleFocusChange(boolean hasFocus, boolean isDestination) {
         if (hasFocus) {
-            List<Location.LocationFeature> locations = new ArrayList<>(); // This will only store the final list for the RecyclerView
+            List<Location.LocationFeature> locations = new ArrayList<>();
 
-            // Retrieve previous locations (excluding "Current Location")
             List<Location.LocationFeature> previousLocations = isDestination
                     ? LocationPreferences.getRecentLocationsForDestination(this)
                     : LocationPreferences.getRecentLocations(this);
@@ -459,7 +464,6 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
                 GeoPoint myLocation = mMyLocationOverlay.getMyLocation();
 
                 if (myLocation != null) {
-                    // Create the "Current Location" feature
                     Location.LocationFeature currentLocation = new Location.LocationFeature();
                     Location.LocationFeature.Properties properties = new Location.LocationFeature.Properties();
                     properties.setName("Current Location");
@@ -473,7 +477,6 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
                     geometry.setCoordinates(new double[]{myLocation.getLongitude(), myLocation.getLatitude()});
                     currentLocation.setGeometry(geometry);
 
-                    // Add "Current Location" as the first item in the list
                     locations.add(0, currentLocation);
                 } else {
                     Toast.makeText(this, "Unable to get your location. Make sure GPS is enabled.", Toast.LENGTH_SHORT).show();
@@ -482,7 +485,6 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
                 Toast.makeText(this, "Location tracking not enabled.", Toast.LENGTH_SHORT).show();
             }
 
-            // Add previous locations to the list (excluding duplicates)
             for (Location.LocationFeature location : previousLocations) {
                 String region = getRegionFromCoordinates(location.getGeometry().getLatitude(), location.getGeometry().getLongitude());
                 location.getProperties().setRegion(region);
@@ -500,7 +502,7 @@ public class Actv_Main extends AppCompatActivity implements MapListener, GpsStat
                 }
             }
 
-            // Update the RecyclerView with the list of locations
+
             Adapter_location adapter = new Adapter_location(locations, feature -> updateEditTextAndHideRecyclerView(
                     isDestination ? binding.actvMainDestinationEt : binding.actvMainStartingpointEt,
                     feature.getProperties().getName(),
