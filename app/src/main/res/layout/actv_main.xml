@@ -159,7 +159,7 @@
         app:iconSize="24dp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@id/actv_main_search_btn"
-        app:layout_constraintBottom_toTopOf="@id/actv_main_fav_btn"
+        app:layout_constraintBottom_toTopOf="@id/actv_main_search_btn"
         app:layout_constraintDimensionRatio=".9:1"
         app:layout_constraintHeight_percent=".08"/>
 
